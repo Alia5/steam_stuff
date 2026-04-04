@@ -38,3 +38,9 @@ function getConnectedControllers() {
 
 console.log(getConnectedControllers());
 ```
+
+## Show Controller configurator for AppID
+
+```javascript
+await SteamClient.Apps.ShowControllerConfigurator(appId)
+```

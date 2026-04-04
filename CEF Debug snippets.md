@@ -40,3 +40,12 @@ SteamClient.Input.SetSelectedConfigForApp(appId, controllerIndex, `workshop://${
 ```javascript
 await SteamClient.Apps.ShowControllerConfigurator(appId)
 ```
+
+## QUery Games
+
+```javascript
+((nonSteamOnly = false, installedOnly = false) => window.appStore.allApps
+  .filter(a => (!nonSteamOnly || a.app_type === 1073741824) && (!installedOnly || a.installed))
+  .map(a => ({ appid: a.appid, name: a.display_name, installed: a.installed, isNonSteam: a.app_type === 1073741824 }))
+)(true, false)
+```

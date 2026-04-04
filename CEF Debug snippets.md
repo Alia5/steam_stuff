@@ -20,17 +20,9 @@ Object.keys(SteamClient).forEach(ns => {
 ## Apply Steam Input community layout
 
 ```javascript
-const tryIndices = [0, 1, 2, 3]
-let controllerIndex = 0
+let controllerIndex = 0 // from query connectedControllers
 
-for (const i of tryIndices) {
-  const config = await SteamClient.Input.GetConfigForAppAndController(appId, i)
-  if (config?.bConfigurationEnabled) {
-    controllerIndex = i
-    break
-  }
-}
-
+await SteamClient.Input.GetConfigForAppAndController(appId, i)
 await SteamClient.Apps.DownloadWorkshopItem(241100, workshopItemId, true)
 SteamClient.Input.SetSelectedConfigForApp(appId, controllerIndex, `workshop://${workshopItemId}`, false, true)
 ```

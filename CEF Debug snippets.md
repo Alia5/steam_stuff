@@ -30,13 +30,9 @@ SteamClient.Input.SetSelectedConfigForApp(appId, controllerIndex, `workshop://${
 ## Query connected controllers
 
 ```javascript
-function getConnectedControllers() {
-  return window.ControllerStore.m_controllerList.map(c =>
+ window.ControllerStore.m_controllerList.map(c =>
     JSON.parse(JSON.stringify(c, (_, val) => typeof val === 'bigint' ? val.toString() : val))
   );
-}
-
-console.log(getConnectedControllers());
 ```
 
 ## Show Controller configurator for AppID

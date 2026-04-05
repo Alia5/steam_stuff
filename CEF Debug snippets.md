@@ -63,3 +63,38 @@ document.body.appendChild(el);
 el.setAttribute("href", "https://steaminputdb.com")
 el.dispatchEvent(new MouseEvent( "click", { "button": 1, "which": 2 }))
 ```
+
+## Add button to Steam game library page (Desktop-UI)
+
+Inject into tab titled `Steam`
+
+```javascript
+(() => {
+  if (window.__sidbOpenButtonObserver) {
+    return;
+  }
+  const ATTR = 'data-sidb-open-button-injected';
+
+  const inject = () => {
+    document.querySelectorAll('.SVGIcon_Settings').forEach((el) => {
+      const container = el.parentElement.parentElement.parentElement;
+      if (container.querySelector(`[${ATTR}]`)) {
+        return;
+      }
+      const node = container.children[1].cloneNode();
+      node.setAttribute(ATTR, '1');
+      node.ariaLabel = "SteamInputDB";
+      node.innerHTML = "<span>S</span>";
+      node.onclick = () => open("https://steaminputdb.com");
+      container.appendChild(node);
+    });
+  };
+
+  inject();
+
+  const observer = new MutationObserver(inject);
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  window.__sidbOpenButtonObserver = observer;
+})();
+```

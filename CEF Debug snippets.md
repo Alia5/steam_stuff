@@ -64,6 +64,11 @@ el.setAttribute("href", "https://steaminputdb.com")
 el.dispatchEvent(new MouseEvent( "click", { "button": 1, "which": 2 }))
 ```
 
+**Notes:**
+
+Just calling `open(URL)` from any context just opens the users default browser.  
+*EXCEPT* from the Steam Big Picture Tab, where it just navigates to the web-page in BPM! :)
+
 ## Add button to Steam game library page (Desktop-UI)
 
 Inject into tab titled `Steam`

@@ -1,3 +1,6 @@
+# Steam stuff
+
+Unless otherwise specified code is to be injected into `SharedJSContext`
 
 ## Intercept ALL SteamClient calls to find what IPC fires
 

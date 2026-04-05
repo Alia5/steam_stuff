@@ -49,3 +49,14 @@ await SteamClient.Apps.ShowControllerConfigurator(appId)
   .map(a => ({ appid: a.appid, name: a.display_name, installed: a.installed, isNonSteam: a.app_type === 1073741824 }))
 )(true, false)
 ```
+
+## Open in new store browser window
+
+Inject into to store tab (url includes `steampowered.com` or starts with `data:text/html`
+
+```javascript
+var el = document.createElement("a");
+document.body.appendChild(el);
+el.setAttribute("href", "https://steaminputdb.com")
+el.dispatchEvent(new MouseEvent( "click", { "button": 1, "which": 2 }))
+```

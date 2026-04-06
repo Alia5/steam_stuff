@@ -64,6 +64,18 @@ el.setAttribute("href", "https://steaminputdb.com")
 el.dispatchEvent(new MouseEvent( "click", { "button": 1, "which": 2 }))
 ```
 
+From UI/Library Tab
+
+```
+window.opener.SteamUIStore.ActiveWindowInstance.m_Navigator.SteamWebTab("https://steaminputdb.com")
+```
+
+SharedJSContext
+
+```
+SteamUIStore.ActiveWindowInstance.m_Navigator.SteamWebTab("https://steaminputdb.com")
+```
+
 **Notes:**
 
 Just calling `open(URL)` from any context just opens the users default browser.  

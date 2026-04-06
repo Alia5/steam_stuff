@@ -103,3 +103,11 @@ Inject into tab titled `Steam`
   window.__sidbOpenButtonObserver = observer;
 })();
 ```
+
+## Currently selected APPID In Library Tab
+
+CEF UI Tab just named `Steam` (Desktop UI!)
+```
+window.opener.SteamUIStore.ActiveWindowInstance.m_locationPathname
+'/library/app/4098358112'
+```
